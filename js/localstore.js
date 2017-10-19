@@ -4,6 +4,7 @@
   let getName = document.getElementById("get-name");
   let userName = document.getElementById("user-name"); 
   let nameStored = localStorage.name;
+  let clearstorage = document.getElementById("clear");
 
   // Displays the name in the console at this stage:
   console.log(`Name on page load: ${nameStored}`);
@@ -38,6 +39,11 @@
     
     return false;
   }
+  
+  function Cleardata() {
+	 delete localStorage.name;
+	  
+  }
 
   if (typeof event === "undefined") {
     getName.onsubmit = PerformGreeting; // for Firefox
@@ -46,5 +52,7 @@
     getName.addEventListener("submit", PerformGreeting);
     event.preventDefault();
   }
+  
+  clearstorage.addEventListener("click", Cleardata);
 
 }());
